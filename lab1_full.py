@@ -1,6 +1,9 @@
 import numpy as np
 from matplotlib import pyplot as plt
 import random
+import sounddevice as sd
+import time
+from scipy.io import wavfile
 
 t = np.linspace(0, 0.03, 200)
 def xfun(t):
@@ -73,6 +76,21 @@ ax[3].plot(t4, square(300, t4))
 ax[3].set_xlim([0, 0.02])
 ax[3].axhline(y=0, color='k')
 plt.show()
+
+sd.play(sine1(400, t1) * 0.01, 1600)
+time.sleep(1)
+sd.play(sine2(800, t2) * 0.01, 1600)
+time.sleep(1)
+sd.play(sawtooth(240, t3) * 0.002, 48000)
+time.sleep(1)
+sd.play(square(300, t4) * 0.002, 60000)
+time.sleep(1)
+sd.stop()
+
+wavfile.write("sine1.wav", 100000, (sine1(400, t1) * 0.01).astype(np.float32))
+wavfile.write("sine2.wav", 100000, (sine2(800, t2) * 0.01).astype(np.float32))
+wavfile.write("sawtooth.wav", 100000, (sawtooth(240, t3) * 0.01).astype(np.float32))
+wavfile.write("square.wav", 100000, (square(300, t4) * 0.01).astype(np.float32))
 
 randomSignal = np.random.rand(128, 128)
 
