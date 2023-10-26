@@ -217,7 +217,7 @@ ax[0, 1].plot(alfa, eroare)
 ax[0, 1].title.set_text('Eroare Alfa/Sin(Alfa)')
 plt.grid(True)
 
-pade = alfa - (7 * alfa**3) / 60 / (1 + (alfa**2/20))
+pade = (alfa - (7 * alfa**3) / 60) / (1 + (alfa**2/20))
 
 ax[1, 0].plot(alfa, alfa)
 ax[1, 0].plot(alfa, pade)
