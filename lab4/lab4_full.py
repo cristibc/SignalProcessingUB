@@ -150,7 +150,7 @@ print("Frecventa minima este: ", freq_min, "Hz")
 
 # Ex 6
 
-y, sr = librosa.load("sound.wav", sr=None)
+y, sr = librosa.load("lab4\sound.wav", sr=None)
 
 grup_size = int(0.01 * len(y))
 overlap = int(0.5 * grup_size)
