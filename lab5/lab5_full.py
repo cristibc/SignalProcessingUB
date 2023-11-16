@@ -37,15 +37,24 @@ t = np.arange(N_halved)
 
 # d)
 
-plt.plot(f, X)
-plt.suptitle('Exercitiul d)')
-plt.xlabel("Hz")
-plt.ylabel("Amp")
-plt.show()
+fig, ax = plt.subplots(2)
+
+ax[0].plot(f, X)
+ax[0].title.set_text('Semnal cu componenta continua')
+ax[0].set_xlabel("Hz")
+ax[0].set_ylabel("Amp")
 
 # e)
 print("Semnalul prezinta o componenta continua, cea care este egala cu 0Hz")
 X[0] = 0
+
+ax[1].plot(f, X)
+ax[1].set_xlabel("Hz")
+ax[1].set_ylabel("Amp")
+ax[1].title.set_text('Semnal fara componenta continua')
+plt.suptitle('Exercitiul d) si e)')
+plt.tight_layout()
+plt.show()
 
 # f)
 poz = np.argsort(X)[-4:]
