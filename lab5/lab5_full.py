@@ -39,6 +39,8 @@ t = np.arange(N_halved)
 
 plt.plot(f, X)
 plt.suptitle('Exercitiul d)')
+plt.xlabel("Hz")
+plt.ylabel("Amp")
 plt.show()
 
 # e)
@@ -61,6 +63,8 @@ f_cut = np.arange(len(x_cut))
 
 plt.plot(f_cut, x_cut)
 plt.suptitle('Exercitiul g)')
+plt.xlabel("h")
+plt.ylabel("Nr Masini")
 plt.show()
 
 # h) 
@@ -74,11 +78,12 @@ plt.show()
 
 # i) Afisam doar valorile care nu deviaza cu mai mult de 100% peste media tuturor valorilor (sarbatori?)
 
-
 high_limit = np.mean(X) * 2
 mask = X <= high_limit
 print("meanX: ", np.mean(X))
 
 plt.plot(f[mask], X[mask])
 plt.suptitle('Exercitiul i)')
+plt.xlabel("Hz")
+plt.ylabel("Amp")
 plt.show()
