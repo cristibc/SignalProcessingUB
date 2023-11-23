@@ -60,7 +60,6 @@ N = 200
 f = 100
 A = 1
 
-# t = np.arange(N)
 t = np.linspace(0, 1, N, endpoint=False)
 semnal = A * np.sin(2 * np.pi * f * t)
 
@@ -151,12 +150,11 @@ cheby_b, cheby_a = cheby1(f_order, rp, f_normalized, btype="low")
 w_butter, h_butter = freqz(butter_b, butter_a)
 w_cheby, h_cheby = freqz(cheby_b, cheby_a)
 
-# Plotează răspunsurile în frecvență
 plt.figure(figsize=(10, 6))
 plt.plot(w_butter, 20 * np.log10(np.abs(h_butter)))
 plt.plot(w_cheby, 20 * np.log10(np.abs(h_cheby)))
 
-plt.xlabel("Frecvență (Hz)")
+plt.xlabel("Frecventa (Hz)")
 plt.ylabel("Amplitudine")
 plt.title("Raspuns al filtrelor")
 plt.legend(["Butter", "Cheby"], loc ="lower left")
@@ -172,10 +170,10 @@ x_filtrat_cheby = filtfilt(cheby_b, cheby_a, x_sliced)
 plt.plot(x_sliced)
 plt.plot(x_filtrat_butter)
 plt.plot(x_filtrat_cheby)
-plt.xlabel("Frecvență (Hz)")
+plt.xlabel("Frecventa (Hz)")
 plt.ylabel("Amplitudine")
 plt.legend(["Original", "Butter", "Cheby"], loc ="lower right")
-plt.title("Datele originale dupa trecerea prin filtre")
+plt.title("Semnalul dupa trecerea prin filtre")
 plt.grid(True)
 plt.tight_layout()
 plt.show()
@@ -201,7 +199,7 @@ for i, order in enumerate(f_orders):
 
     plt.suptitle("Semnale filtrate, ordin = 3, 5, 7")
     plt.tight_layout()
-    plt.xlabel("Frecvență (Hz)")
+    plt.xlabel("Frecventa (Hz)")
     plt.ylabel("Amplitudine")
     plt.grid(True)
     plt.legend()
